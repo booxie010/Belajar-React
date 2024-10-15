@@ -4,14 +4,29 @@ import axios from "axios";
 export default function List() {
     const [prodi, setProdi] = useState([]);
     const [namaProdi, setNamaProdi] = useState("");
+    const [fakultas, setFakultas] = useState([]);
     const [selectedFakultas, setSelectedFakultas] = useState("");
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState(false);
     const [duplicate, setDuplicate] = useState(false);
 
     useEffect(() => {
-        getProdis()
+        getProdis();
+        getFakultas();
     }, []);
+
+    const getFakultas = () => {
+        axios
+            .get("http://127.0.0.1:8000/api/fakultas")
+            .then((response) => {
+                setFakultas(response.data.result)
+                console.log(response.data.result)
+            })
+            .catch((error) => {
+                console.error("Error Error feteching data: ", error);
+            })
+    }
+    
 
     const getProdis = () => {
         axios
@@ -75,6 +90,10 @@ export default function List() {
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
+                            
+                            <div className="alert alert-danger" role="alert">
+                                Fakultas Tidak Boleh Kosong !!!
+                            </div>
                             <form>
                                 <label className="form-label">Nama Prodi</label>
                                 <input 
@@ -83,13 +102,16 @@ export default function List() {
                                     value={namaProdi}
                                     onChange={(e) => setNamaProdi(e.target.value)}
                                 />
+                                {/* Menampilkan Selected */}
                                 <label className="form-label mt-3">Masukan Fakultas</label>
                                 <select className="form-select" aria-label="Pilih Fakultas"
-                                
+                                    value={selectedFakultas}
+                                    onChange={(e) => setSelectedFakultas(e.target.value)}
                                 >
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option value="">Select Fakultas</option>
+                                    {fakultas.map((fk) => (
+                                        <option key={fk.id} value={fk.id}>{fk.nama}</option>
+                                    ))}
                                 </select>
                             </form>
                         </div>
@@ -97,7 +119,7 @@ export default function List() {
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
                                 Close
                             </button>
-                            <button type="button" className="btn btn-Primary" onClick={submitProdi} data-bs-dismiss="modal">
+                            <button type="button" className="btn btn-Primary" onClick={submitProdi}>
                                 Submit
                             </button>
                         </div>
