@@ -37,9 +37,7 @@ export default function List() {
                 if(response.data.success) {
                     setSuccess(true);
                     getFakultas();
-                } else if (response.data.duplicate) {
-                    console.log("Duplikasi");
-                    setDuplicate(true);
+                    
                 }
             })
             .catch((error) => {
@@ -48,7 +46,7 @@ export default function List() {
             });
 
         setNamaFakultas("");
-
+        
         // Timer alert selama 3 detik
         setTimeout(() => {
             setSuccess(false);
@@ -116,7 +114,12 @@ export default function List() {
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            <form>
+                            <form onSubmit={
+                                (e) => {
+                                    e.preventDefault();
+                                    submitFakultas();
+                                }
+                            }>
                                 <label className="form-label">Nama Fakultas</label>
                                 <input 
                                     className="form-control"
@@ -124,15 +127,16 @@ export default function List() {
                                     value={namaFakultas}
                                     onChange={(e) => setNamaFakultas(e.target.value)}
                                 />
+
+                                <div className="modal-footer">
+                                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
+                                        Close
+                                    </button>
+                                    <button type="button" className="btn btn-Primary" onClick={submitFakultas}>
+                                        Submit
+                                    </button>
+                                </div>
                             </form>
-                        </div>
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
-                                Close
-                            </button>
-                            <button type="button" className="btn btn-Primary" onClick={submitFakultas} data-bs-dismiss="modal">
-                                Submit
-                            </button>
                         </div>
                     </div>
                 </div>
