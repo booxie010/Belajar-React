@@ -10,7 +10,7 @@ const ProdiList = React.lazy(() => import("./components/Prodi/List"))
 const FakultasCreate = React.lazy(() => import("./components/Fakultas/Create"));
 const ProdiCreate = React.lazy(() => import("./components/Prodi/Create"));
 
-
+{/* <Route path="/fakultas/create" element={<FakultasCreate />}/> */}
 
 const App = () => {
   return (
