@@ -9,6 +9,7 @@ export default function List() {
     const [fakultas, setFakultas] = useState([]);
 
     useEffect(() => {
+        // https://project-apiif-3-b.vercel.app/api/api/fakultas
         axios
             .get("http://127.0.0.1:8000/api/fakultas")
             .then((response) => {
@@ -34,6 +35,7 @@ export default function List() {
                     <tr>
                         <th>Nomor</th>
                         <th>Fakultas</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,6 +43,11 @@ export default function List() {
                         <tr key={fk.id}>
                             <td>{index+1}</td>
                             <td>{fk.nama}</td>
+                            <td>
+                                <NavLink to={`/fakultas/edit/${fk.id}`} className="btn btn-warning">
+                                    Edit
+                                </NavLink>
+                            </td>
                         </tr>
                     ))}
                 </tbody>

@@ -8,6 +8,9 @@ const Home = React.lazy(() => import("./components/Home"));
 const FalkultasList = React.lazy(() => import("./components/Fakultas/List"));
 const ProdiList = React.lazy(() => import("./components/Prodi/List"))
 const FakultasCreate = React.lazy(() => import("./components/Fakultas/Create"));
+
+const FakultasEdit = React.lazy(() => import("./components/Fakultas/Edit"));
+
 const ProdiCreate = React.lazy(() => import("./components/Prodi/Create"));
 
 
@@ -48,6 +51,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/fakultas" element={<FalkultasList />}/>
             <Route path="/fakultas/create" element={<FakultasCreate />}/>
+            <Route path="/fakultas/edit/:id" element={<FakultasEdit />}/>
 
             <Route path="/prodi" element={<ProdiList />}/>
             <Route path="/prodi/create" element={<ProdiCreate/>}/>
