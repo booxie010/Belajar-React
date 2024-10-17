@@ -29,6 +29,7 @@ export default function CreateProdi() {
         };
         fetchFakultas();
     }, []);
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");
@@ -42,7 +43,7 @@ export default function CreateProdi() {
 
         try {
             const response = await axios.post(
-                "http://127.0.0.1:8000/api/fakultas", 
+                "http://127.0.0.1:8000/api/prodi", 
                 {
                     // Data yang dikirim berupa objek JSON
                     nama: namaProdi, // Nama Prodi
@@ -52,15 +53,15 @@ export default function CreateProdi() {
 
             if (response.status === 201) {
                 // Tampilkan pesan sukses jika fakultas berhasil dibuat
-                setSuccess("Fakultas created successfully");
+                setSuccess("Prodi created successfully");
                 setNamaFakultas("");
             } else {
                 // Jika tidak berhasil, maka pesan error nampil
-                setError("Failed to create fakultas");
+                setError("Failed to create Prodi");
             }
         } catch (error) {
             // JIka terjadi error (misal masalah jaringan dan database), tampilkan pesan error
-            setError("An error occurred while creating fakultas")
+            setError("An error occurred while creating Prodi")
         }
     }
     return(
@@ -79,7 +80,9 @@ export default function CreateProdi() {
 
                     {/* Input untuk nama fakultas dengan class bootstrap */}
                     <input
-                        type="text" className="form-control" id="namaFakultas"
+                        type="text" 
+                        className="form-control" 
+                        id="namaProdi"
                         value={namaProdi} // Nilai input disimpan di state namaFakultas
                         onChange={(e) => setNamaProdi(e.target.value)} // Update State saat input berubah
                         placeholder="Masukan Nama Prodi" // Placeholder teks untuk input

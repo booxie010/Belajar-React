@@ -50,6 +50,7 @@ export default function CreateFakultas() {
             {error && <div className="alert alert-danger">{error}</div>}
             {/* Jika ada pesan error, tampilkan dalam alert bootstrap */}
             {success && <div className="alert alert-success">{success}</div>}
+            
             {/* Form untuk mengisi nama fakultas */}
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
