@@ -20,7 +20,7 @@ export default function CreateProdi() {
         const fetchFakultas = async () => {
             try {
                 const response = await axios.get(
-                    "http://127.0.0.1:8000/api/fakultas"
+                    "https://laravel-apiif-3-b-main.vercel.app/api/api/fakultas"
                 );
                 setFakultasList(response.data.result);
             } catch (error) {
@@ -43,7 +43,7 @@ export default function CreateProdi() {
 
         try {
             const response = await axios.post(
-                "http://127.0.0.1:8000/api/prodi", 
+                "https://laravel-apiif-3-b-main.vercel.app/api/api/prodi",
                 {
                     // Data yang dikirim berupa objek JSON
                     nama: namaProdi, // Nama Prodi
@@ -54,14 +54,16 @@ export default function CreateProdi() {
             if (response.status === 201) {
                 // Tampilkan pesan sukses jika fakultas berhasil dibuat
                 setSuccess("Prodi created successfully");
-                setNamaFakultas("");
+                setNamaProdi("");
+                setFakultasId(""); // Reset fakultas selection
             } else {
                 // Jika tidak berhasil, maka pesan error nampil
                 setError("Failed to create Prodi");
             }
         } catch (error) {
             // JIka terjadi error (misal masalah jaringan dan database), tampilkan pesan error
-            setError("An error occurred while creating Prodi")
+            setError("An error occurred while creating Prodi");
+            console.error(error);
         }
     }
     return(

@@ -12,10 +12,10 @@ export default function List() {
 
     const getProdis = () => {
         axios
-            .get("http://127.0.0.1:8000/api/prodi")
+            .get("https://laravel-apiif-3-b-main.vercel.app/api/api/prodi")
             .then((response) => {
                 setProdi(response.data.result)
-                console.log(response.data.result)
+                // console.log(response.data.result)
             })
             .catch((error) => {
                 console.error("Error feteching data: ", error);
@@ -51,6 +51,11 @@ export default function List() {
                                 <td>{index + 1}</td>
                                 <td>{pd.nama}</td>
                                 <td>{pd.fakultas.nama}</td>
+                                <td>
+                                    <NavLink to={`/prodi/edit/${pd.id}`} className="btn btn-warning">
+                                        Edit
+                                    </NavLink>
+                                </td>
                             </tr>
                         ))
                     )}

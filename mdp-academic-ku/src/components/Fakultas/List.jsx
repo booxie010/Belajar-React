@@ -9,7 +9,7 @@ export default function List() {
     useEffect(() => {
         // https://project-apiif-3-b.vercel.app/api/api/fakultas
         axios
-            .get("http://127.0.0.1:8000/api/fakultas")
+            .get("https://laravel-apiif-3-b-main.vercel.app/api/api/fakultas")
             .then((response) => {
                 setFakultas(response.data.result);
             })

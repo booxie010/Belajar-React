@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import axios from "axios";
 
 export default function CreateFakultas() {
@@ -23,7 +23,7 @@ export default function CreateFakultas() {
 
         try {
             const response = await axios.post(
-                "http://127.0.0.1:8000/api/fakultas", 
+                "https://laravel-apiif-3-b-main.vercel.app/api/api/fakultas",
                 {
                     nama: namaFakultas, // Data yang dikirim berupa objek JSON
                 }
