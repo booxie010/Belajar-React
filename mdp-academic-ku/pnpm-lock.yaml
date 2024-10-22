@@ -11,6 +11,9 @@ importers:
       axios:
         specifier: ^1.7.7
         version: 1.7.7
+      bootstrap:
+        specifier: ^5.3.3
+        version: 5.3.3(@popperjs/core@2.11.8)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -20,6 +23,9 @@ importers:
       react-router-dom:
         specifier: ^6.27.0
         version: 6.27.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      sweetalert2:
+        specifier: ^11.14.4
+        version: 11.14.4
     devDependencies:
       '@eslint/js':
         specifier: ^9.11.1
@@ -351,6 +357,9 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
+  '@popperjs/core@2.11.8':
+    resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
+
   '@remix-run/router@1.20.0':
     resolution: {integrity: sha512-mUnk8rPJBI9loFDZ+YzPGdeniYK+FTmRD1TMCz7ev2SNIozyKKpnGgsxO34u6Z4z/t0ITuu7voi/AshfsGsgFg==}
     engines: {node: '>=14.0.0'}
@@ -532,6 +541,11 @@ packages:
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
+
+  bootstrap@5.3.3:
+    resolution: {integrity: sha512-8HLCdWgyoMguSO9o+aH+iuZ+aht+mzW0u3HIMzVu7Srrpv7EBBxTnrFlSCskwdY1+EOFQSm7uMJhNQHkdPcmjg==}
+    peerDependencies:
+      '@popperjs/core': ^2.11.8
 
   brace-expansion@1.1.11:
     resolution: {integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==}
@@ -1258,6 +1272,9 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
+  sweetalert2@11.14.4:
+    resolution: {integrity: sha512-8QMzjxCuinwm18EK5AtYvuhP+lRMRxTWVXy8om9wGlULsXSI4TD29kyih3VYrSXMMBlD4EShFvNC7slhTC7j0w==}
+
   text-table@0.2.0:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
 
@@ -1626,6 +1643,8 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
+  '@popperjs/core@2.11.8': {}
+
   '@remix-run/router@1.20.0': {}
 
   '@rollup/rollup-android-arm-eabi@4.24.0':
@@ -1817,6 +1836,10 @@ snapshots:
       - debug
 
   balanced-match@1.0.2: {}
+
+  bootstrap@5.3.3(@popperjs/core@2.11.8):
+    dependencies:
+      '@popperjs/core': 2.11.8
 
   brace-expansion@1.1.11:
     dependencies:
@@ -2684,6 +2707,8 @@ snapshots:
       has-flag: 4.0.0
 
   supports-preserve-symlinks-flag@1.0.0: {}
+
+  sweetalert2@11.14.4: {}
 
   text-table@0.2.0: {}
 
